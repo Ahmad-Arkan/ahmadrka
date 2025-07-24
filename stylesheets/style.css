@@ -1,0 +1,162 @@
+@import url("desktop.css");
+@import url("tablet.css");
+@import url("mobile.css");
+@font-face {
+    font-family: "Outfit-Medium";
+    src: url("../fonts/Outfit-Medium.ttf") format("truetype");
+}
+
+/* Light Theme Variable */
+[theme="light"] {
+    --background-body: #add0ff;
+    --background-content: #ffffff80;
+    --button-color: #00abff;
+    --content-color: #363636;
+    --hover-color: #ffffffba;
+    --hover-shadow: #00000030 0 10px 15px;
+    --backdrop-content: blur(20px);
+    --border-radius: 10px;
+    --sub-border-radius: 5px;
+    --error : #ff3434;
+}
+
+/* Dark Theme Variable */
+[theme="dark"] {
+    --background-body: #050120;
+    --background-content: #35354580;
+    --button-color: #113388;
+    --content-color: #fff;
+    --hover-color: #3f3f4fba;
+    --hover-shadow: #ffffff50 0 6px 15px;
+    --backdrop-content: blur(30px);
+    --border-radius: 10px;
+    --sub-border-radius: 5px;
+}
+
+/* Universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit-Medium", Arial;
+    color: var(--content-color);
+    scroll-behavior: smooth;
+    transition: background-color 0.2s;
+    
+}
+
+body {
+    background-color: var(--background-body);
+}
+
+a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: initial;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    transition: background-color 0.2s,  box-shadow 0.2s;
+}
+
+/* Highlight */
+button:focus, button:active {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+p {
+    font-weight: normal;
+}
+
+form button {
+    font-size: 1.5vw;
+    font-weight: bold;
+    background-color: var(--hover-color);
+    border-radius: var(--sub-border-radius);
+}
+
+form button:hover {
+    background-color: var(--button-color);
+}
+
+input, textarea {
+    border: none;
+    font-weight: normal;
+    resize: none;
+    background-color: var(--hover-color);
+    transition: box-shadow 0.2s;
+}
+
+input:focus, textarea:focus {
+    box-shadow: var(--hover-shadow);
+    transition: box-shadow 0.2s;
+    border: none;
+    outline: none;
+}
+
+.menu-open {
+    overflow-y: hidden;
+}
+
+/* Hidden Content */
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.a-hide {
+    text-indent: -9999px;
+}
+
+.overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.overlay {
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #00000030;
+    backdrop-filter: blur(3px);
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+/* Web Text Selection */
+::selection {
+    background-color: var(--button-color);
+    color: var(--content-color);
+}
