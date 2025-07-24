@@ -31,6 +31,7 @@
     --backdrop-content: blur(30px);
     --border-radius: 10px;
     --sub-border-radius: 5px;
+    --error : #aa3434;
 }
 
 /* Universal */
@@ -67,6 +68,7 @@ ul {
 }
 
 button {
+    cursor: pointer;
     width: 100%;
     height: 100%;
     display: flex;
