@@ -6,43 +6,56 @@ async function loadLanguage(lang) {
     document.documentElement.setAttribute('lang', lang);
 
     elements.forEach(el => {
-        const key = el.getAttribute('data-lang');
-        if (translations[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = translations[key];
-            } else {
-                el.textContent = translations[key].replace(/<br\s*\/?>/gi, '\n');
-            }
+      const key = el.getAttribute('data-lang');
+      if (translations[key]) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = translations[key];
+        } else {
+          el.textContent = translations[key].replace(/<br\s*\/?>/gi, '\n');
         }
+      }
     });
   } catch (error) {
-    console.error(`Failed load language: ${lang}`, error);
+    console.error(`Failed to load language: ${lang}`, error);
   }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const select = document.getElementById('lang-select');
+    const select = document.getElementById('lang-select');
 
-  const savedLang = localStorage.getItem('language');
-  const defaultLang = navigator.language.slice(0, 2);
-  const browserLang = ['en', 'id', 'oid', 'jv', 'su'].includes(defaultLang) ? defaultLang : 'en';
+    const savedLang = localStorage.getItem('language');
+    const defaultLang = navigator.language.slice(0, 2);
+    const browserLang = ['en', 'id', 'oid', 'jv', 'su'].includes(defaultLang) ? defaultLang : 'en';
 
-  const initialLang = savedLang === 'system' ? browserLang : (savedLang || browserLang);
-  loadLanguage(initialLang);
+    let initialLang;
 
-  select.value = savedLang || browserLang;
+    if (!savedLang) {
+        // belum pernah di-set, pakai sistem dan simpan sebagai 'system'
+        localStorage.setItem('language', 'system');
+        initialLang = browserLang;
+        select.value = 'system';
+    } else if (savedLang === 'system') {
+        initialLang = browserLang;
+        select.value = 'system';
+    } else {
+        initialLang = savedLang;
+        select.value = savedLang;
+    }
 
-  select.addEventListener('change', (e) => {
+    loadLanguage(initialLang);
+
+    select.addEventListener('change', (e) => {
         const selectedLang = e.target.value;
         localStorage.setItem('language', selectedLang);
 
         if (selectedLang === 'system') {
-            loadLanguage(browserLang);
+        loadLanguage(browserLang);
         } else {
-            loadLanguage(selectedLang);
+        loadLanguage(selectedLang);
         }
     });
 });
+
 
 
 
