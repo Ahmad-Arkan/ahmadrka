@@ -306,7 +306,6 @@ input, textarea {
     width: 100%;
     border-radius: var(--border-radius);
     border: none;
-    background-color: none;
 }
 
 .resume-menu {
