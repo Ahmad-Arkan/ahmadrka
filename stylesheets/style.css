@@ -126,11 +126,13 @@ input, textarea {
 }
 
 input:focus, textarea:focus, select:focus {
+    background-color: var(--hover-color);
     box-shadow: var(--hover-shadow);
     transition: box-shadow 0.2s;
     border: none;
     outline: none;
 }
+
 
 .menu-open {
     overflow-y: hidden;

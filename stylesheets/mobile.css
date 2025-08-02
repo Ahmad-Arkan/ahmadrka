@@ -750,6 +750,11 @@ input, textarea {
 .contact .contact-content .contact-form .form-header button {
     width: 12vw;
     margin: 0;
+    background-color: transparent;
+}
+
+.contact .contact-content .contact-form .form-header button:hover {
+    background-color: var(--hover-color);
 }
 
 .contact .contact-content .contact-form .form-header button svg {
