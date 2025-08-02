@@ -722,8 +722,8 @@ input, textarea {
 .contact .contact-content .contact-form h2 {
     font-size: 7vw;
     padding: 5%;
+    padding: 0;
     margin-bottom: 1vw;
-    text-align: center;
 }
 
 .contact .contact-content .contact-form input {
@@ -738,6 +738,22 @@ input, textarea {
     padding: 3% 4%;
     margin-bottom: 2.5vw;
     border-radius: var(--sub-border-radius);
+}
+
+.contact .contact-content .contact-form .form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.contact .contact-content .contact-form .form-header button {
+    width: 12vw;
+    margin: 0;
+}
+
+.contact .contact-content .contact-form .form-header button svg {
+    margin: 0;
 }
 
 .contact .contact-content .contact-form .form-identity {

@@ -719,7 +719,7 @@ input, textarea {
     transition: opacity 0.5s;
 }
 
-.contact .contact-content .contact-form button svg {
+.contact .contact-content .contact-form #submit svg {
     margin-left: 1rem;
 }
 
@@ -738,6 +738,16 @@ input, textarea {
     padding: 0.5rem 0.8rem;
     margin-bottom: 1.5rem;
     border-radius: var(--sub-border-radius);
+}
+
+.contact .contact-content .contact-form .form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact .contact-content .contact-form .form-header button {
+    width: 2.5rem;
 }
 
 .contact .contact-content .contact-form .form-identity {

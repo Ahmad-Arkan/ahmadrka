@@ -529,7 +529,15 @@
                 </button>
             </div>
             <form class="contact-form" id="contact-form" method="dialog">
-                <h2 data-lang="form1">Send Me a Message</h2>
+                <div class="form-header">
+                    <h2 data-lang="form1">Send Me a Message</h2>
+                    <button title="Reset Form" id="resetform" onclick="resetMessage()" type="button">
+                        <svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="191.261" y="708.623" width="731.66" height="143" rx="64" transform="rotate(-45 191.261 708.623)" fill="var(--content-color)"/>
+                            <rect x="859" y="141" width="717" height="717" rx="358.5" transform="rotate(90 859 141)" stroke="var(--content-color)" stroke-width="143" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
                 <div class="form-identity">
                     <div>
                         <label for="name" id="label-name" data-lang="nameLabel">Name</label>
@@ -557,7 +565,7 @@
                     <path d="M7.5 11.5L9.5 13.5L12 11L14.5 8.5" stroke="var(--button-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <h2 data-lang="formSent">Your Message Has Been Sent</h2>
-                <button onclick="sendAnother()" class="box" data-lang="formAnother">Send Another Message</button>
+                <button onclick="resetMessage()" class="box" data-lang="formAnother">Send Another Message</button>
             </div>
         </div>
     </section>

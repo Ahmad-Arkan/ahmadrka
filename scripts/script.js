@@ -272,14 +272,24 @@ document.addEventListener('DOMContentLoaded', () => {
     email.value = localStorage.getItem('form_email') || '';
     message.value = localStorage.getItem('form_message') || '';
 
+    if (!name.value && !email.value && !message.value) {
+        document.getElementById('resetform').style = 'visibility: hidden;';
+    } else {
+        document.getElementById('resetform').style = 'visibility: visible;';
+    }
+
+
     name.addEventListener('input', () => {
         localStorage.setItem('form_name', name.value)
+        document.getElementById('resetform').style = 'visibility: visible;';
     });
     email.addEventListener('input', () => {
         localStorage.setItem('form_email', email.value)
+        document.getElementById('resetform').style = 'visibility: visible;';
     });
     message.addEventListener('input', () => {
         localStorage.setItem('form_message', message.value)
+        document.getElementById('resetform').style = 'visibility: visible;';
     });
 });
 
@@ -320,13 +330,23 @@ function sendMail () {
     document.getElementById('form-done').style = 'visibility: visible; opacity: 1;';
     document.getElementById('contact-form').style = 'opacity: 0;';
     emailjs.send('Ahmadrka.com','Ahmadrka.com',messages);
+
+    localStorage.removeItem('form_name');
+    localStorage.removeItem('form_email');
+    localStorage.removeItem('form_message');
+    document.getElementById('resetform').style = 'visibility: hidden;';
 }
 
-// Send Another Message
-function sendAnother () {
+// Reset Message
+function resetMessage () {
+    localStorage.removeItem('form_name');
+    localStorage.removeItem('form_email');
+    localStorage.removeItem('form_message');
+
     document.getElementById('form-done').style = 'visibility: hidden; opacity: 0;';
     document.getElementById('contact-form').style = 'opacity: 1;';
     document.getElementById('contact-form').reset();
+    document.getElementById('resetform').style = 'visibility: hidden;';
 };
 
 
