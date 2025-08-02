@@ -46,6 +46,8 @@
     "messageLabel" : "Message",
     "messageForm" : "Your Message",
     "formSend" : "Send Now",
+    "formEmpty" : "Forms Cannot Be Empty!",
+    "formInvalid" : "Forms Invalid!",
     "formSent" : "Your Message Has Been Sent",
     "formAnother" : "Send Another Message",
     "footer1" : "Ahmadrka Personal Webpage",

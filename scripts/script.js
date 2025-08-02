@@ -1,9 +1,14 @@
+// Language
+let activeTranslations = {}
+
+// Language Loader
 async function loadLanguage(lang) {
   try {
     const response = await fetch(`./languages/${lang}.json`);
     const translations = await response.json();
     const elements = document.querySelectorAll('[data-lang]');
     document.documentElement.setAttribute('lang', lang);
+    activeTranslations = translations
 
     elements.forEach(el => {
       const key = el.getAttribute('data-lang');
@@ -20,9 +25,9 @@ async function loadLanguage(lang) {
   }
 }
 
+// Language Detector
 document.addEventListener('DOMContentLoaded', function () {
     const select = document.getElementById('lang-select');
-
     const savedLang = localStorage.getItem('language');
     const defaultLang = navigator.language.slice(0, 2);
     const browserLang = ['en', 'id', 'oid', 'jv', 'su'].includes(defaultLang) ? defaultLang : 'en';
@@ -30,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let initialLang;
 
     if (!savedLang) {
-        // belum pernah di-set, pakai sistem dan simpan sebagai 'system'
         localStorage.setItem('language', 'system');
         initialLang = browserLang;
         select.value = 'system';
@@ -259,44 +263,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // EmailJS
+document.addEventListener('DOMContentLoaded', () => {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    name.value = localStorage.getItem('form_name') || '';
+    email.value = localStorage.getItem('form_email') || '';
+    message.value = localStorage.getItem('form_message') || '';
+
+    name.addEventListener('input', () => {
+        localStorage.setItem('form_name', name.value)
+    });
+    email.addEventListener('input', () => {
+        localStorage.setItem('form_email', email.value)
+    });
+    message.addEventListener('input', () => {
+        localStorage.setItem('form_message', message.value)
+    });
+});
+
 function sendMail () {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
-
-    let activeLang = document.documentElement.lang || 'en';
-
-    const translations = {
-    en: {
-        empty: 'Forms cannot be empty!',
-        sendNow: 'Send Now'
-    },
-    id: {
-        empty: 'Pesan tidak boleh kosong!',
-        sendNow: 'Kirim Sekarang'
-    },
-    oid: {
-        empty: 'Pesan tidak boleh kosong!',
-        sendNow: 'Kirim Sekarang'
-    },
-    jv: {
-        empty: 'Pesen mboten kepareng kosong.', 
-        sendNow: 'Kintun Samenika'
-    },
-    su: {
-        empty: 'Pesen teu tiasa kosong!',
-        sendNow: 'Kirim Ayeuna'
-    }
-    };
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const submitBtn = document.getElementById('submit');
 
     if (!name || !email || !message) {
-        const submitBtn = document.getElementById('submit');
         submitBtn.style.backgroundColor = 'var(--error)';
-        submitBtn.textContent = translations[activeLang].empty;
+        submitBtn.textContent = activeTranslations.formEmpty;
 
         setTimeout(() => {
             submitBtn.style = '';
-            submitBtn.innerHTML = `${translations[activeLang].sendNow}<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="954.669" y="500.116" width="500" height="143" rx="71.5" transform="rotate(135 954.669 500.116)" fill="var(--content-color)"/><rect x="601.116" y="146" width="500" height="143" rx="71.5" transform="rotate(45 601.116 146)" fill="var(--content-color)"/><rect x="128" y="428" width="744" height="143" rx="64" fill="var(--content-color)"/></svg>`;
+            submitBtn.innerHTML = `${activeTranslations.formSend}<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="954.669" y="500.116" width="500" height="143" rx="71.5" transform="rotate(135 954.669 500.116)" fill="var(--content-color)"/><rect x="601.116" y="146" width="500" height="143" rx="71.5" transform="rotate(45 601.116 146)" fill="var(--content-color)"/><rect x="128" y="428" width="744" height="143" rx="64" fill="var(--content-color)"/></svg>`;
+        }, 3000);
+        return false;
+    } else if (!emailValid) {
+        submitBtn.style.backgroundColor = 'var(--error)';
+        submitBtn.textContent = activeTranslations.formInvalid;
+
+        setTimeout(() => {
+            submitBtn.style = '';
+            submitBtn.innerHTML = `${activeTranslations.formSend}<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="954.669" y="500.116" width="500" height="143" rx="71.5" transform="rotate(135 954.669 500.116)" fill="var(--content-color)"/><rect x="601.116" y="146" width="500" height="143" rx="71.5" transform="rotate(45 601.116 146)" fill="var(--content-color)"/><rect x="128" y="428" width="744" height="143" rx="64" fill="var(--content-color)"/></svg>`;
         }, 3000);
         return false;
     }

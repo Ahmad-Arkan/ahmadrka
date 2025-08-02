@@ -46,6 +46,8 @@
     "messageLabel" : "Pesen",
     "messageForm" : "Eusian Pesen Anjeun",
     "formSend" : "Kirimkeun Ayeuna",
+    "formEmpty" : "Pesen Teu Tiasa Kosong!",
+    "formInvalid" : "Pesan Teu Valid!",
     "formSent" : "Pesen Anjeun Parantos Dikirim",
     "formAnother" : "Kirim Pesen Lain",
     "footer1" : "Halaman Website Pribadi Ahmadrka",

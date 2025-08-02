@@ -46,6 +46,8 @@
     "messageLabel" : "Pesan",
     "messageForm" : "Isi Pesan Kamu",
     "formSend" : "Kirim Sekarang",
+    "formEmpty" : "Pesan Tidak Boleh Kosong!",
+    "formInvalid" : "Pesan Tidak Valid!",
     "formSent" : "Pesan Anda Telah Terkirim",
     "formAnother" : "Kirim Pesan Lagi",
     "footer1" : "Halaman Website Pribadi Ahmadrka",

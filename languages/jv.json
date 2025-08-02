@@ -46,6 +46,8 @@
     "messageLabel" : "Pesen",
     "messageForm" : "Isi Pesen Panjenengan",
     "formSend" : "Kintun Samenika",
+    "formEmpty" : "Pesen Mboten Kepareng Kosong.",
+    "formInvalid" : "Pesen Mboten Valid!",
     "formSent" : "Pesen Panjenengan Sampun Kekintun",
     "formAnother" : "Kintun Pesen Malih",
     "footer1" : "Halaman Website Pribadi Ahmadrka",
