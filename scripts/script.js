@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     document.getElementById('resume-print').addEventListener('click', function () {
-    const iframe = document.getElementById('resume-frame');
+    const iframe = document.getElementById('resume-frame-print');
         iframe.focus();
         iframe.contentWindow.print();
     });
