@@ -11,7 +11,7 @@
 :root {
     --border-radius: 0.5rem;
     --sub-border-radius: 0.25rem;
-    --backdrop-content: blur(20px);
+    --backdrop-content: blur(30px);
 }
 
 [data-lang] {
@@ -21,7 +21,7 @@
 /* Light Theme Variable */
 [theme="light"] {
     --background-body: #add0ff;
-    --background-content: #ffffff80;
+    --background-content: #ffffff70;
     --button-color: #00abff;
     --content-color: #363636;
     --hover-color: #ffffffba;
@@ -32,7 +32,7 @@
 /* Dark Theme Variable */
 [theme="dark"] {
     --background-body: #050120;
-    --background-content: #35354580;
+    --background-content: #30304090;
     --button-color: #113388;
     --content-color: #fff;
     --hover-color: #353550ba;
