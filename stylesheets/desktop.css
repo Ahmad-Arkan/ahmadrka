@@ -336,8 +336,9 @@ input, textarea {
 .home {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    justify-content: center;
     align-items: center;
+    gap: 3rem;
     padding: 15vh 8% 3rem 8%;
 }
 
@@ -388,12 +389,15 @@ input, textarea {
 
 /* Navbar */
 .navbar {
+    width: 84%;
+    max-width: 83rem;
     z-index: 1000;
     position: sticky;
     top: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    justify-self: center;
     align-items: center;
     background-color: var(--background-content);
     backdrop-filter: var(--backdrop-content);

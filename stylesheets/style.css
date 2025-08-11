@@ -1,9 +1,10 @@
-@import url("desktop.css");
-@import url("tablet.css");
-@import url("mobile.css");
+@import url("/stylesheets/desktop.css");
+@import url("/stylesheets/tablet.css");
+@import url("/stylesheets/mobile.css");
+
 @font-face {
-    font-family: "Outfit-Medium";
-    src: url("../fonts/Outfit-Medium.ttf") format("truetype");
+    font-family: "Outfit";
+    src: url("/fonts/Outfit.ttf") format("truetype");
 }
 
 /* Root */
@@ -31,10 +32,10 @@
 /* Dark Theme Variable */
 [theme="dark"] {
     --background-body: #050120;
-    --background-content: #20203580;
+    --background-content: #35354580;
     --button-color: #113388;
     --content-color: #fff;
-    --hover-color: #303045ba;
+    --hover-color: #353550ba;
     --hover-shadow: #ffffff30 0 6px 15px;
     --error : #aa3434;
 }
@@ -44,7 +45,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Outfit-Medium", Arial;
+    font-family: "Outfit", Arial;
     color: var(--content-color);
     scroll-behavior: smooth;
     transition: background-color 0.2s;
