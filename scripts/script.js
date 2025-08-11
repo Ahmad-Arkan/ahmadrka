@@ -293,22 +293,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-let now = new Date();
-let time = now.toLocaleString('en-GB', {
-  day: '2-digit',
-  month: 'short',
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: false
-}).replace(',', '');
-
 function sendMail () {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const submitBtn = document.getElementById('submit');
+
+    let now = new Date();
+    let time = now.toLocaleString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    }).replace(',', '');
 
     if (!name || !email || !message) {
         submitBtn.style.backgroundColor = 'var(--error)';
