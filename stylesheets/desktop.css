@@ -389,7 +389,7 @@ input, textarea {
 
 /* Navbar */
 .navbar {
-    width: 84%;
+    width: -webkit-fill-available;
     max-width: 83rem;
     z-index: 1000;
     position: sticky;
@@ -404,10 +404,12 @@ input, textarea {
     border-radius: var(--border-radius);
     margin: 0% 8%;
     padding: 1rem;
-    transition: box-shadow 0.2s, margin 0.3s ease-in-out;
+    transition: box-shadow 0.2s, margin 0.1s, width 0.3s ease-in-out, max-width 0.3s ease-in-out;
 }
 
 .navbar.top {
+    width: -webkit-fill-available;
+    max-width: 100%;
     margin: 1rem 1rem;
     box-shadow: var(--hover-shadow);
 }
