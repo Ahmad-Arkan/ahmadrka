@@ -293,6 +293,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+let now = new Date();
+let time = now.toLocaleString('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false
+}).replace(',', '');
+
 function sendMail () {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -324,7 +334,8 @@ function sendMail () {
     let messages = {
         name : document.getElementById('name').value,
         email : document.getElementById('email').value,
-        message : document.getElementById('message').value
+        message : document.getElementById('message').value,
+        time : time
     };
 
     document.getElementById('form-done').style = 'visibility: visible; opacity: 1;';
