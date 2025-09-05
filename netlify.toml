@@ -67,11 +67,12 @@
 [[redirects]]
   from = "/revofun"
   to = "https://lambent-stardust-6fcb3a.netlify.app/"
-  status = 301
+  status = 200
   force = true
 
 [[redirects]]
   from = "/*"
   to = "/not-found.html"
   status = 404
+
 
